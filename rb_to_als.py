@@ -18,10 +18,19 @@ tracks = root.findall('./COLLECTION/TRACK')
 
 # Process each track
 for track in tracks:
-    # Get track name and make it a valid file name
+    # Get track name and artist, and make them valid file names
     track_name = track.get('Name')
-    valid_name = "".join(c for c in track_name if c.isalnum() or c in (' ', '.', '_')).rstrip()
-    output_file = os.path.join(output_folder, f'{valid_name}.xml')
+    artist = track.get('Artist')
+    valid_track_name = "".join(c for c in track_name if c.isalnum() or c in (' ', '.', '_')).rstrip()
+    valid_artist_name = "".join(c for c in artist if c.isalnum() or c in (' ', '.', '_')).rstrip()
+    
+    track_folder = os.path.join(output_folder, f'{valid_artist_name} - {valid_track_name}')
+    
+    # Create the track folder if it doesn't exist
+    if not os.path.exists(track_folder):
+        os.makedirs(track_folder)
+
+    output_file = os.path.join(track_folder, f'{valid_artist_name} - {valid_track_name}.xml')
 
     # Create a new XML structure for the individual track
     new_root = ET.Element('DJ_PLAYLISTS', {'Version': '1.0.0'})
