@@ -5,6 +5,6 @@
   "author": "Brian Roach <itsbrexnpm@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "python3 rb_to_als.py"
+    "start": "python rb_to_als.py"
   }
 }

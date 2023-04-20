@@ -19,12 +19,12 @@ tracks = root.findall('./COLLECTION/TRACK')
 # Process each track
 for track in tracks:
     # Get track name and make it a valid file name
-    track_name = track.find('TITLE').text
+    track_name = track.get('Name')
     valid_name = "".join(c for c in track_name if c.isalnum() or c in (' ', '.', '_')).rstrip()
     output_file = os.path.join(output_folder, f'{valid_name}.xml')
 
     # Create a new XML structure for the individual track
-    new_root = ET.Element('DJ_PLAYLISTS')
+    new_root = ET.Element('DJ_PLAYLISTS', {'Version': '1.0.0'})
     new_collection = ET.SubElement(new_root, 'COLLECTION')
     new_collection.append(track)
 
