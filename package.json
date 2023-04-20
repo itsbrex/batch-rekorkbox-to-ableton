@@ -1,0 +1,10 @@
+{
+  "name": "batch-rekorkbox-to-ableton",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Brian Roach <itsbrexnpm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 rb_to_als.py"
+  }
+}
