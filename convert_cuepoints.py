@@ -16,6 +16,7 @@ from tkinter.filedialog import askopenfile, asksaveasfile
 from tkinter.scrolledtext import ScrolledText
 from urllib.parse import unquote
 import xml.etree.ElementTree as ET
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +30,7 @@ def run():
         parser = argparse.ArgumentParser(
             description='convert between cues and warp markers')
         parser.add_argument(
-            'als_file', type=str, help='path to ALS file')
+            'als_file', type=str, nargs='?', default=None, help='path to ALS file')
         parser.add_argument(
             'rekordbox_file', type=str, help='path to Rekordbox xml file')
         parser.add_argument(
@@ -37,15 +38,19 @@ def run():
             help='set to true to convert Rekordbox to Ableton')
         args = parser.parse_args()
 
-        with open(args.als_file, mode='rb') as als_file, \
-            open(args.rekordbox_file, mode='rb') as rekordbox_file:
+        if args.reverse and args.als_file is None:
+            output_als_file = create_output_als_file(args.rekordbox_file)
+        else:
+            output_als_file = args.als_file
+
+        with open(args.rekordbox_file, mode='rb') as rekordbox_file, \
+             open(output_als_file, mode='rb') as als_file:
             if not args.reverse:
                 with open('output.xml', 'wb') as outfile:
                     ableton_to_rekordbox(als_file, rekordbox_file, outfile)
             else:
-                with open('output.als', 'wb') as outfile:
+                with open(output_als_file, 'wb') as outfile:
                     rekordbox_to_ableton(als_file, rekordbox_file, outfile)
-
 
         logger.info('Finished writing ' + outfile) 
     else:
@@ -57,6 +62,10 @@ def run():
 
         app.mainloop()
 
+def create_output_als_file(rekordbox_file_path):
+    # Create an output.als file in the same folder as the rekordbox_file
+    output_als_file_path = os.path.join(os.path.dirname(rekordbox_file_path), 'output.als')
+    return output_als_file_path
 
 def normalize_time(time):
     if time == 0:
