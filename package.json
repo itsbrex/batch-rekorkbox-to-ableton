@@ -1,10 +1,28 @@
 {
   "name": "batch-rekorkbox-to-ableton",
   "version": "1.0.0",
-  "main": "index.js",
-  "author": "Brian Roach <itsbrexnpm@gmail.com>",
+  "description": "A tool to batch convert Rekordbox playlists to Ableton Live sets.",
+  "keywords": [
+    "rekordbox",
+    "ableton",
+    "cuepoints",
+    "converter",
+    "tool"
+  ],
+  "author": {
+    "name": "Brian Roach",
+    "url": "https://linkedin.com/in/itsbrianroach"
+    },
   "license": "MIT",
   "scripts": {
     "start": "python rb_to_als.py"
+  },
+  "homepage": "https://github.com/itsbrex/batch-rekorkbox-to-ableton",
+  "bugs": {
+    "url": "https://github.com/itsbrex/batch-rekorkbox-to-ableton/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsbrex/batch-rekorkbox-to-ableton.git"
   }
 }
