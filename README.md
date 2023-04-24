@@ -1,6 +1,10 @@
 # Batch Convert Rekordbox Cue Points to Ableton Warp Markers
 
+> 🚧 Currently, only splitting the Rekordbox `Library.xml` to individual track XML files is completed.  🚧
+
 This project allows you to split your exported Rekordbox XML file into individual XML files for each song. Each XML file will contain track information and cue points which can be used to set Ableton warp markers.
+
+![](https://media.cleanshot.cloud/media/29602/oHo9492yO0zaLQb9sftpa67fthykO91dsArtYM2M.gif?Expires=1682390675&Signature=NrbO58dqTb5wczRC-jud1Uvqtxw-Tvqm2TT~HzQuAHFCCLuQxUyz8aNYxEF9VSKLuxbhfPqME11GtT7IJ4cIJaWXuxCDLAgakoS7tR7rcFaKlFbOk6QQ-ZR9q~FuPGy9NzYuBhDwQmEbDnEY0CLrFkfuN4~IZh2A9hpZS~VXYAUSrYTH2cVSkh8DC40ZL6tVj7d506lDEi~4W2CIkOoRkr9KGRRhIQaMMFjpjVUef2HxlcLzhy9YfURiygDn8JTtWuMLrTQ7ZlaOfpCutvpHGLLWIgTzPNQPAMCSe80cfpkc9pIawiwsGAnOSgJxgMSSSrZSuHS9TE1CM-cmltsS5g__&Key-Pair-Id=K269JMAT9ZF4GZ)
 
 ## Features
 
@@ -20,18 +24,23 @@ This project allows you to split your exported Rekordbox XML file into individua
 3. Run the `rb_to_als.py` script using Python 3.x.
 
 ```bash
-python rb_to_als.py
+python3 rb_to_als.py
 ```
 
-4. The script will process each track in your Rekordbox library and generate individual XML files containing track information and cue points.
+4. The script will process each track in your Rekordbox `library.xml` file and generate individual XML files containing track information and cue points.
 5. Use these XML files to set Ableton warp markers for your tracks.
+
+## TODO
+
+- [ ] Automate creating Ableton `.als` project files for each song so that we can batch convert Rekordbox cue points to Ableton warp markers with `convert_cuepoints.py`
+- [ ] Add support for Rekordbox phrases
 
 ## Example
 
 For instance, if your Rekordbox XML library file is located at `~/Desktop/xls_als/library.xml` and you want to save individual track XML files to `~/Desktop/xls_als/tracks`, simply set the `input_file` and `output_folder` variables as follows:
 
 ```python
-input_file = os.path.expanduser('~/Desktop/xls_als/library.xml')
+input_file    = os.path.expanduser('~/Desktop/xls_als/library.xml')
 output_folder = os.path.expanduser('~/Desktop/xls_als/tracks')
 ```
 
@@ -43,12 +52,10 @@ This script is provided "as is" and any expressed or implied warranties are disc
 
 This project takes inspiration from the following [gist](https://gist.github.com/sandhose/b6903fe3bca799063300cce28832dfdc) and has been adapted for batch processing individual songs.
 
-## To Do
-- [ ] Make it easier to convert songs to Ableton by automating the process of creating individual `.als` files. Currently, we must manually create a new project for each track, which is time-consuming and boring. To solve this, we need to fully automate the process so that `convert_cuepoints.py` can be used on a directory of Rekordbox XML files, resulting in a new Ableton project for every song in the library.
 
 ## Contributing
 
-Contributions are welcomed. This project follows the all-contributors spec. ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
+Contributions are welcomed! This project follows the all-contributors spec. ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/github/all-contributors/itsbrex/batch-rekorkbox-to-ableton?color=ee8449&style=flat-square)](#contributing)
@@ -66,6 +73,6 @@ Contributions are welcomed. This project follows the all-contributors spec. ([em
 
 ## License
 
-MIT © [itsbrex](https://github.com/itsbrex)
+MIT - see [LICENSE](./LICENSE) for more details.
 
 If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/itsbrex) or <a href="https://twitter.com/itsbrex">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
