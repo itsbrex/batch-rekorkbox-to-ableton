@@ -4,7 +4,7 @@
 
 This project allows you to split your exported Rekordbox XML file into individual XML files for each song. Each XML file will contain track information and cue points which can be used to set Ableton warp markers.
 
-![](https://media.cleanshot.cloud/media/29602/oHo9492yO0zaLQb9sftpa67fthykO91dsArtYM2M.gif?Expires=1682390675&Signature=NrbO58dqTb5wczRC-jud1Uvqtxw-Tvqm2TT~HzQuAHFCCLuQxUyz8aNYxEF9VSKLuxbhfPqME11GtT7IJ4cIJaWXuxCDLAgakoS7tR7rcFaKlFbOk6QQ-ZR9q~FuPGy9NzYuBhDwQmEbDnEY0CLrFkfuN4~IZh2A9hpZS~VXYAUSrYTH2cVSkh8DC40ZL6tVj7d506lDEi~4W2CIkOoRkr9KGRRhIQaMMFjpjVUef2HxlcLzhy9YfURiygDn8JTtWuMLrTQ7ZlaOfpCutvpHGLLWIgTzPNQPAMCSe80cfpkc9pIawiwsGAnOSgJxgMSSSrZSuHS9TE1CM-cmltsS5g__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![](./demo.gif)
 
 ## Features
 
